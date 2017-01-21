@@ -7,6 +7,8 @@ import {AppComponent} from './app.component';
 import {GroupsTable} from "./groups-table.components";
 import {StudentsTable} from "./students-tavle.component";
 import {AppRoutingModule} from "./app-routing.module";
+import {EditGroupComponent} from "./edit-group.component";
+import {GroupService} from "./group.service";
 
 @NgModule({
   imports: [
@@ -18,9 +20,10 @@ import {AppRoutingModule} from "./app-routing.module";
   declarations: [
     AppComponent,
     GroupsTable,
-    StudentsTable
+    StudentsTable,
+    EditGroupComponent
   ],
-  providers: [],
+  providers: [GroupService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

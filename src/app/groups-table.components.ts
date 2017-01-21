@@ -1,6 +1,6 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Group} from "./group";
-import {GROUPS} from "./mock-groups";
+import {GroupService} from "./group.service";
 
 @Component({
   selector: 'groups-table',
@@ -19,8 +19,14 @@ import {GROUPS} from "./mock-groups";
 `
 })
 
-export class GroupsTable {
-  groups: Group[] = GROUPS;
+export class GroupsTable implements OnInit{
+  groups: Group[];
+
+  constructor(private groupService: GroupService) {}
+
+  ngOnInit(): void {
+    this.groupService.getGroups().then(groups => this.groups = groups);
+  }
 }
 
 
